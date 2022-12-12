@@ -1,3 +1,5 @@
+package org.example;
+
 public class Christmas {
     private int high;
     private int length;
@@ -10,25 +12,25 @@ public class Christmas {
     }
 
 
-    public void turnOn(int i1, int j1, int i2, int j2) {
-        for (int i = i1; i <= i2; i++) {
-            for (int j = j1; j <= j2; j++) {
+    public void turnOn(Area area) {
+        for (int i = area.getI1(); i <= area.getI2(); i++) {
+            for (int j = area.getJ1(); j <= area.getJ2(); j++) {
                 board[i][j] += 1;
             }
         }
     }
 
-    public void turnOff(int i1, int j1, int i2, int j2) {
-        for (int i = i1; i <= i2; i++) {
-            for (int j = j1; j <= j2; j++) {
+    public void turnOff(Area area) {
+        for (int i = area.getI1(); i <= area.getI2(); i++) {
+            for (int j = area.getJ1(); j <= area.getJ2(); j++) {
                 board[i][j] -= 1;
             }
         }
     }
 
-    public void toggle(int i1, int j1, int i2, int j2) {
-        for (int i = i1; i <= i2; i++) {
-            for (int j = j1; j <= j2; j++) {
+    public void toggle(Area area) {
+        for (int i = area.getI1(); i <= area.getI2(); i++) {
+            for (int j = area.getJ1(); j <= area.getJ2(); j++) {
                 board[i][j] += 2;
             }
         }
