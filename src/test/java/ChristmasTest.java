@@ -12,21 +12,21 @@ public class ChristmasTest {
         int j1 = 0;
         int i2 = 9;
         int j2 = 9;
-        Christmas christmas = new Christmas();
+        Christmas christmas = new Christmas(10, 10);
         //Act
         christmas.turnOn(i1, j1, i2, j2);
-        boolean[][] actualBoard = christmas.getBoard();
+        int[][] actualBoard = christmas.getBoard();
         //Assert
-        boolean[][] expectedBoard = {{true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true}};
+        int[][] expectedBoard = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
         assertThat(actualBoard).isDeepEqualTo(expectedBoard);
     }
 
@@ -37,88 +37,161 @@ public class ChristmasTest {
         int j1 = 4;
         int i2 = 5;
         int j2 = 5;
-        Christmas christmas = new Christmas();
+        Christmas christmas = new Christmas(10, 10);
         //Act
         christmas.turnOn(i1, j1, i2, j2);
-        boolean[][] actualBoard = christmas.getBoard();
+        int[][] actualBoard = christmas.getBoard();
         //Assert
-        boolean[][] expectedBoard = {{false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, true, true, false, false, false, false},
-                {false, false, false, false, true, true, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false}};
+        int[][] expectedBoard = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 1, 1, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
         assertThat(actualBoard).isDeepEqualTo(expectedBoard);
     }
 
     @Test
     void should_turn_off_the_middle_of_bord() {
         //Arrange
-        Christmas christmas = new Christmas();
+        Christmas christmas = new Christmas(10, 10);
         //Act
-        christmas.turnOn(0,0,9,9);
+        christmas.turnOn(0, 0, 9, 9);
         christmas.turnOff(4, 4, 5, 5);
-        boolean[][] actualBoard = christmas.getBoard();
+        int[][] actualBoard = christmas.getBoard();
         //Assert
-        boolean[][] expectedBoard = {{true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, false, false, true, true, true, true},
-                {true, true, true, true, false, false, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true}};
+        int[][] expectedBoard = {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 0, 0, 1, 1, 1, 1},
+                {1, 1, 1, 1, 0, 0, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
         assertThat(actualBoard).isDeepEqualTo(expectedBoard);
     }
+
     @Test
     void should_toggle_all_the_board() {
         //Arrange
-        Christmas christmas = new Christmas();
+        Christmas christmas = new Christmas(10, 10);
 
         //Act
-       christmas.toggle(0,0,9,9);
-        boolean[][] actualBoard = christmas.getBoard();
+        christmas.toggle(0, 0, 9, 9);
+        int[][] actualBoard = christmas.getBoard();
+
         //Assert
-        boolean[][] expectedBoard = {{true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true},
-                {true, true, true, true, true, true, true, true, true, true}};
+        int[][] expectedBoard = {{2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2}};
         assertThat(actualBoard).isDeepEqualTo(expectedBoard);
     }
+
     @Test
     void should_toggle_first_line_of_the_board() {
         //Arrange
-        Christmas christmas = new Christmas();
+        Christmas christmas = new Christmas(10, 10);
 
         //Act
-        christmas.turnOn(1,0,9,9);
-        christmas.toggle(0,0,9,9);
+        christmas.toggle(0, 0, 9, 9);
 
-        boolean[][] actualBoard = christmas.getBoard();
+        int[][] actualBoard = christmas.getBoard();
         //Assert
-        boolean[][] expectedBoard = {{true, true, true, true, true, true, true, true, true, true},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false},
-                {false, false, false, false, false, false, false, false, false, false}};
+        int[][] expectedBoard = {
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+        };
         assertThat(actualBoard).isDeepEqualTo(expectedBoard);
+    }
+    @Test
+    void should_toggle_first_line_of_ffffe_board() {
+        //Arrange
+        Christmas christmas = new Christmas(10, 10);
+
+        //Act
+        christmas.turnOn(0, 0, 9, 9);
+        christmas.toggle(0, 0, 9, 9);
+
+        int[][] actualBoard = christmas.getBoard();
+        //Assert
+        int[][] expectedBoard = {
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3}
+        };
+        assertThat(actualBoard).isDeepEqualTo(expectedBoard);
+    }
+    @Test
+    void should_toggle_first_line_of_rrrr_board() {
+        //Arrange
+        Christmas christmas = new Christmas(10, 10);
+
+        //Act
+        christmas.turnOn(0, 0, 0, 9);
+        christmas.toggle(0, 0, 9, 9);
+
+        int[][] actualBoard = christmas.getBoard();
+        //Assert
+        int[][] expectedBoard = {
+                {3, 3, 3, 3, 3, 3, 3, 3, 3, 3},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2},
+                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2}
+        };
+        assertThat(actualBoard).isDeepEqualTo(expectedBoard);
+    }
+
+    @Test
+    void todotodo() {
+        Christmas christmas = new Christmas(1000, 1000);
+
+        christmas.turnOn(887, 9, 959, 629);
+        christmas.turnOn(454, 398, 844, 448);
+        christmas.turnOff(539, 243, 559, 965);
+        christmas.turnOff(370, 819, 676, 868);
+        christmas.turnOff(145, 40, 370, 997);
+        christmas.turnOff(301, 3, 808, 453);
+        christmas.turnOn(351, 678, 951, 908);
+        christmas.toggle(720, 196, 897, 994);
+        christmas.toggle(831, 394, 904, 860);
+
+        int nbOfLightOn = christmas.nbOfLightOn();
+
+        System.out.println(nbOfLightOn);
     }
 }
 
