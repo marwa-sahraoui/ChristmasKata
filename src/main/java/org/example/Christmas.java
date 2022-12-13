@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.function.Function;
+
 public class Christmas {
     private int high;
     private int length;
@@ -11,30 +13,29 @@ public class Christmas {
         this.board = new int[high][length];
     }
 
-
-    public void turnOn(Area area) {
+    public void doOperation(Function<Integer, Integer> function, Area area) {
         for (int i = area.getI1(); i <= area.getI2(); i++) {
             for (int j = area.getJ1(); j <= area.getJ2(); j++) {
-                board[i][j] += 1;
+                board[i][j] = function.apply(board[i][j]);
             }
         }
+    }
+    public void turnOn(Area area) {
+        Function<Integer, Integer> turnOn = (oldValue) -> oldValue + 1;
+        doOperation(turnOn, area);
     }
 
     public void turnOff(Area area) {
-        for (int i = area.getI1(); i <= area.getI2(); i++) {
-            for (int j = area.getJ1(); j <= area.getJ2(); j++) {
-                board[i][j] -= 1;
-            }
-        }
+        Function<Integer, Integer> turnOff = (oldValue) -> oldValue - 1;
+        doOperation(turnOff, area);
     }
 
     public void toggle(Area area) {
-        for (int i = area.getI1(); i <= area.getI2(); i++) {
-            for (int j = area.getJ1(); j <= area.getJ2(); j++) {
-                board[i][j] += 2;
-            }
-        }
+        Function<Integer, Integer> toggle = (oldValue) -> oldValue + 2;
+        doOperation(toggle, area);
     }
+
+
 
     public int[][] getBoard() {
         return board;
